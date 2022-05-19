@@ -1,5 +1,6 @@
 <template>
     <div class="banner">
+        
         <h1>Quer investir seu dinheiro?<br>
             
             Abra sua conta.<br>É grátis.
@@ -12,11 +13,11 @@
 
 <script>
     import BotaoPreto from '../Botoes/BotaoPreto.vue'
-
     export default {
         name:'HomeBanner',
       components:{
-        BotaoPreto
+        BotaoPreto,
+        
       }
     }
 </script>
@@ -42,6 +43,10 @@
         height: 2em;   
     }
     
+    #linha{
+        width: 60%;
+        height: 10%;
+    }
     
     
     

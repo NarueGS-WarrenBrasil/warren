@@ -1,20 +1,16 @@
 <template>
   <div class="corpo">
-    <NavCadastro />
     <FormCadastro />
-    
     <img  id="moça" alt="moça grande" src="@/assets/moçaGrande.png" width="621" height="1287" >
     
   </div>
 </template>
 
 <script setup>
-import NavCadastro from '../components/cadastro/NavCadastro.vue'
 import FormCadastro from '../components/cadastro/FormCadastro.vue'
 
 export default{
     components:{
-        NavCadastro,
         FormCadastro,
     }
 }

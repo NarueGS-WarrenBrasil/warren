@@ -3,7 +3,7 @@
         <div >
             <img id="moça" loading="lazy" src="https://warren.com.br/assets/images/modules/produtos/d_carteiras.jpg" width="645" height="728" alt="foto Carteiras - warren">
             <div class="texto1">
-                <h1 id="title1">Tá consado de Loren ipsum?</h1>
+                <h1 id="title1">Tá cansado de Loren ipsum?</h1>
                 <h3>Então vem pra Warren!<br>Aqui te impulsionamos pra <strong>bem longe</strong> do velho<br>Lorem ipsum etiam congue
                  <br>hac blandit class duis, aliquam<br>
                  donec gravida sagittis sollicitudin primis<br> 
@@ -11,7 +11,7 @@
                  potenti dolor mauris<br> eu arcu etiam habitasse<br> 
                  pulvinar, in netus pretium <br>elementum scelerisque potenti 
                  <br>urna sagittis id, curae conubia etiam <br> </h3>
-                 <a href="/cadastro"><BotaoMagenta msg="Cadastre-se" id="b"/></a>
+                <router-link to="/cadastro"><BotaoMagenta msg="Cadastre-se" id="b"/></router-link>
                  
             </div>
             
@@ -19,7 +19,7 @@
 
         <img id="moço" loading="lazy" src="https://warren.com.br/assets/images/modules/produtos/d_bolsa.jpg" width="645" height="728" alt="foto Carteiras - warren">
         <div class="texto2">
-                <h1 id="title2">Tá consado de Loren ipsum?</h1>
+                <h1 id="title2">Tá cansado de Loren ipsum?</h1>
                 <div id="borda"> <h3>Então vem pra Warren!<br>Aqui te impulsionamos pra <strong>bem longe</strong> do velho<br>Lorem ipsum etiam congue
                  <br>hac blandit class duis, aliquam<br>
                  donec gravida sagittis elementum scelerisque potenti 
@@ -29,7 +29,7 @@
                  potenti dolor mauris<br> eu arcu etiam habitasse<br> 
                  pulvinar, in netus pretium <br></h3>
                  
-                 <a href="cadastro"><BotaoMagenta msg="Cadastre-se" id="b"/></a>
+                 <router-link to="/cadastro"><BotaoMagenta msg="Cadastre-se" id="b"/></router-link>
             </div>
     </div>
 </template>
