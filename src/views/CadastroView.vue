@@ -1,7 +1,7 @@
 <template>
   <div class="corpo">
     <FormCadastro />
-    <img  id="moça" alt="moça grande" src="@/assets/moçaGrande.png" width="621" height="1287" >
+    <img  class="moça" alt="moça grande" src="@/assets/moçaGrande.png" width="621" height="1287" >
     
   </div>
 </template>
@@ -17,13 +17,26 @@ export default{
 </script>
 
 <style>
+
+    @media (max-width: 600px){
+  .facet_sidebar
+   {
+    display: none;
+   }
+  }
+
+
+
   body{
     background-color: rgb(246, 253, 254);
     margin: 0%;
     font-family: ;
   }
 
-  #moça{
+  .moça{
     float: right;
+    position:relative;
+    width: 33vw;
+    height:100%;
   }
 </style>

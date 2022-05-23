@@ -7,93 +7,103 @@
     </div>
     <div :class="{leave:moviment}" ref="box1" id="box1" class="box" v-show="fase == 1">
          <LinhaProgrecao1 />
-         <h1 id="bemVindo">Seja bem-vindo</h1><br>
+         <h1 id="mainText">Seja bem-vindo</h1><br>
           
-        <span>Quetal começar a investir do melhor jeito? Primeiro nos conte sobre você para
-        depois contarmos sobre o jeito Warren de investir!</span>
+        
         <form>
-          <label for="nome" class='especialLabel'>NOME COMPLETO</label><br>
+          <label for="nome" class='especialLabel'>NOME COMPLETO</label>
           <input type="text-box" id="bigInput" name="nome" v-model="nome"><br>
           <span class="erroMsg" ref="ErrorName">Esse campo deve ser preenchido</span>
           <div class="subBox1">
             <!-- <EmailIcon id="con"/> -->
-            <label for="email" class='normalLabel'>EMAIL</label><br><br><br>
-            <input type="email" class="inBox" id="emailBox1" name="email" v-model="email"><br>
+            
+              
+            <div class="inBox">
+              <label for="email" class='normalLabel'>EMAIL</label>
+              <input type="email"  class="in" name="email" v-model="email"><br>
+            </div>
             <span class="erroMsg" ref="ErrorEmail">Esse campo deve ser preenchido</span>
             
+            <div class="inBox">
+              <label for="cpf" class='normalLabel'>CPF</label>
+              <input v-maska="'###.###.###-##'" type="text" class="in" name="cpf" autocomplete="off" maxlength="14" v-model="cpf"><br>
+            </div>
+            <span class="erroMsg" ref="ErrorCpf"  >Esse campo deve ser preenchido</span>
             
-            <label for="cpf" class='normalLabel'>CPF</label><br><br><br>
-            <input v-maska="'###.###.###-##'" type="text" class="inBox" id="cpf" name="cpf" autocomplete="off" maxlength="14" v-model="cpf"><br>
-            <span class="erroMsg" id="cpf" ref="ErrorCPF"  >Esse campo deve ser preenchido</span>
-            
-          
-            <label for="date" class='normalLabel'>DATA DE NASCIMENTO</label><br><br><br>
-            <p name="date" id="date">
-              <DataIcon id='con'/>
-              <input class="dateIn" type="date" v-model="date">
-              <span>{{date}}</span>
-            </p>
+            <div class="inBox">
+              <label for="date" class='normalLabel'>DATA DE NASCIMENTO</label>
+              <input  type="date" v-model="date">
+            </div>
             <span class="erroMsg" id="Edate" ref="ErrorDate"  >Esse campo deve ser preenchido</span>
             
+            
 
-            <br><br><br><strong>
+            <strong id="text">
               <p>Quer receber aszz melhores dicas e ficar por dentro do universo Warren?</p>
-              <p>Então selecione por onde deseja recerber tudo e mais um pouco:</p><br><br><br>
+              <p>Então selecione por onde deseja recerber tudo e mais um pouco:</p>
             </strong>
-            <input type="checkbox" id="checkin" name="msg">
-            <label for="msg" id="check">Email e SMS</label><br><br><br>
-            <label for="whats" id="check">Whatsapp</label>
-            <input type="checkbox" id="checkin" name="whats"><br><br><br>
-
-            <p>Quer receber as melhores dicas e ficar por dentro do universo Warren?</p>
-            <p>Então selecione por onde deseja recerber tudo e mais um pouco:</p> 
-            <a href="#navbar"> <BotaoMagenta msg="Próximo" id="proximo" v-on:click.native = "next"/></a>
+            <div class="checkBox">
+              <input type="checkbox" id="checkin" name="msg">
+              <label for="msg" id="check">Email e SMS</label><br>
+              <label for="whats" id="check">Whatsapp</label>
+              <input type="checkbox" id="checkin" name="whats">
+            </div>
+            <a href="#navbar"> <BotaoMagenta msg="Próximo" id="proximo" v-on:click.native = "verify1"/></a>
           </div>
           <div class="subBox2">
-              
-              <label for="email" class='normalLabel'>CONFIRMAR EMAIL</label><br><br><br>
-              <input type="text-box" class="inBox" id="emailBox2" name="email" v-model="email2"><br>
-              <span class="erroMsg" id="email2" ref="ErrorEmail2"  >Esse campo deve ser preenchido</span>
-              
-              
-              <label for="email" class='normalLabel'>TELEFONE</label><br><br><br>
-              <input v-maska="'+55(##)#####-####'" type="text-box" class="inBox" id="" name="email" maxlength="17" v-model="telefone"><br>
-              <span class="erroMsg" id="telefone" ref="ErrorTelefone"  >Esse campo deve ser preenchido</span>
-          
+            <div class="inBox">
+              <label for="email" class='normalLabel'>CONFIRMAR EMAIL</label>
+              <input type="text-box" class="in" name="email" v-model="email2"><br>
+            </div>
+            <span class="erroMsg" id="email2" ref="ErrorEmail2"  >Esse campo deve ser preenchido</span>
+
+            <div class="inBox">
+              <label for="email" class='normalLabel'>TELEFONE</label>
+              <input v-maska="'+55(##)#####-####'" type="text-box" class="in" id="" name="email" maxlength="17" v-model="telefone">
+            </div>
+            <span class="erroMsg" id="telefone" ref="ErrorTelefone"  >Esse campo deve ser preenchido</span>
           </div>
           
         </form>
     </div>
     <div :class="{leave:moviment}"  id="box2"  class="box" v-show="fase == 2">
       <LinhaProgrecao2 id="linha"/>
-      <h1 id="b">Dados pessoais</h1><br><br><br>
-      <span>Quetal começar a investir do melhor jeito? Primeiro nos conte sobre você para
+      <h1 id="mainText">Dados pessoais</h1><br>
+      <span id="text">Quetal começar a investir do melhor jeito? Primeiro nos conte sobre você para
         depois contarmos sobre o jeito Warren de investir!</span>
       <form>
           <div class="subBox1">
             <!-- <EmailIcon id="con"/> -->
-            <label for="pais" class='normalLabel'>PAÍS ONDE RESIDE</label><br><br><br>
-            <input type="text" class="inBox" i name="pais" v-model="pais"><br>
-            <span class="erroMsg" ref="ErrorPais"  >Esse campo deve ser preenchido</span>
+            <div class="inBox">
+              <label for="pais" class='normalLabel'>PAÍS</label>
+              <input type="text"  class="in" name="pais" v-model="pais"><br>
+            </div>
+            <span class="erroMsg" ref="ErrorPais">Esse campo deve ser preenchido</span>
             
-            <label for="cidade" class='normalLabel'>CIDADE</label><br><br><br>
-            <input type="text" class="inBox"  name="cidade" autocomplete="off" v-model="cidade"><br>
+            <div class="inBox">
+              <label for="cidade" class='normalLabel'>CIDADE</label>
+              <input type="text" class="in"  name="cidade" autocomplete="off" v-model="cidade"><br>
+            </div>
             <span class="erroMsg" ref="ErrorCidade"  >Esse campo deve ser preenchido</span>
+            
+              <label for="numero" class='especialLabel2'>NÚMERO</label><br>
+              <input type="text" id="bigInput" name="numero" v-model="numero"><br>
+              <span class="erroMsg" ref="ErrorNumero"  >Esse campo deve ser preenchido</span>
 
-            <label for="numero" class='especialLabel2'>NÚMERO</label><br>
-            <input type="text" id="bigInput" name="numero" v-model="numero"  ><br>
-            <span class="erroMsg" ref="ErrorNumero"  >Esse campo deve ser preenchido</span>
              <a href="#navbar"> <BotaoMagenta msg="Próximo" id="proximo" v-on:click.native = "verify2"/></a>
           </div>
           <div class="subBox2">
-              <label for="cep" class='normalLabel'>CEP</label><br><br><br>
-              <input type="text" class="inBox" name="email" v-model="cep"><br>
+            <div class="inBox">
+              <label for="cep" class='normalLabel'>CEP</label>
+              <input type="text" class="in" name="email" v-model="cep">
+            </div>  
               <span class="erroMsg" ref="ErrorCep"  >Esse campo deve ser preenchido</span>
               
-              
-              <label for="endereco" class='normalLabel'>ENDEREÇO</label><br><br><br>
-              <input type="text" class="inBox" name="endereco" maxlength="14" v-model="endereco"><br>
-              <span class="erroMsg" ref="ErrorEndereco"  >Esse campo deve ser preenchido</span>
+            <div class="inBox">
+              <label for="endereco" class='normalLabel'>ENDEREÇO</label>
+              <input type="text" class="in" name="endereco" maxlength="14" v-model="endereco"><br>
+            </div>
+            <span class="erroMsg" ref="ErrorEndereco"  >Esse campo deve ser preenchido</span>
           </div>
           
           
@@ -101,7 +111,7 @@
     </div>
     <div  class="box" v-show="fase == 3">
       <LinhaProgrecao3 />
-      <h1>AA</h1>
+      <NiceForm />
      
     </div>
   </div>   
@@ -110,8 +120,8 @@
 
 <script>
   import VoltarIcon from '../icons/VoltarIcon.vue'
+  import NiceForm from '../icons/NiceForm.vue'
   // import Fase1Cadastro from './fases/Fase1Cadastro.vue'
-  import DataIcon from "../icons/dataIcon.vue"
   import BotaoMagenta from '../Botoes/BotaoMagenta.vue'
   import LinhaProgrecao1 from '../icons/LinhaProgrecao1.vue'
   import LinhaProgrecao2 from '../icons/LinhaProgrecao2.vue'
@@ -124,7 +134,7 @@
           // Fase1Cadastro,
           // Fase2Cadastro,
           BotaoMagenta,
-          DataIcon,
+          NiceForm,
           LinhaProgrecao1,
           LinhaProgrecao2,
           LinhaProgrecao3,         
@@ -133,11 +143,11 @@
         
         data(){
           return {
-            fase:1,
+            fase:3,
             moviment: false,
             teste: "paused",
             validEmail: false,
-
+            
             nome:"",
             email:"",
             email2:"",
@@ -194,15 +204,13 @@
              if(errors[n] == 1){
                 this.$refs.ErrorEmail.innerHTML = "Esse campo deve ser preenchido"
                 this.$refs.ErrorEmail.style.display = "block"
-                
               }
               if(errors[n] == 2){
                 this.$refs.ErrorEmail2.style.display = "block"
                 this.$refs.ErrorEmail.innerHTML = "Esse campo deve ser preenção"
               }
               if(errors[n] == 3){
-                this.$refs.ErrorCPF.style.display = "block"
-                
+                this.$refs.ErrorCpf.style.display = "block"
               }
               if(errors[n] == 4){
                 this.$refs.ErrorTelefone.style.display = "block"
@@ -216,8 +224,6 @@
             for(let x = 0;x<check.length;x++){
               if(check[x] == 0){
                 final.push(this.nome)
-                
-                //check.splice(x,1)
                 this.$refs.ErrorName.style.display = "none"
               }
 
@@ -239,12 +245,9 @@
                 if(this.email2 == this.email && this.validEmail == true){
                   final.push(this.email)
                   final.push(this.email2)
-                  // check.splice(x,1)
-                  // check.splice(x-1,1)
                   this.$refs.ErrorEmail2.style.display = "none"
                 }
                 else{
-                  
                   this.$refs.ErrorEmail.innerHTML = "Email inválido"
                   this.$refs.ErrorEmail.style.display = "block"
                   this.$refs.ErrorEmail2.innerHTML = "Email inválido"
@@ -253,9 +256,8 @@
               }
 
               if(check[x] == 3){
-                console.log(x)
                 final.push(this.cpf)
-                this.$refs.ErrorCPF.style.display = "none"
+                this.$refs.ErrorCpf.style.display = "none"
               }
               if(check[x] == 4){
                 if(this.telefone.length == 17){
@@ -271,10 +273,7 @@
                   this.$refs.ErrorDate.style.display = "none"
                   final.push(this.date)
                 }
-              }
-
-
-              
+              }              
             }
             if(final.length == 6 ){
               this.next()
@@ -335,21 +334,22 @@
 
 
 
-
   #navbar {
     background-color: rgb(255, 26, 95);
     display: flex;
     padding-bottom: 0px;
-    height:1.5em;
+    height:1.2em;
+    width: 100%;
     font-size: 30px;
     margin-bottom: 0%; 
-    text-align: center;  color: azure; 
+    text-align: center;  
+    color: azure; 
   }
 
     #title{
-      margin-top: 0.8%;
-      margin-left: 48%;
-      font-size: 45%;
+
+      margin-left: 48vw;
+      font-size: clamp(0.3em, 0.7vw, 1em);
       font-weight: 700;
     }
     #voltar{
@@ -358,19 +358,26 @@
       margin: 0.5%
     }
 
-    #icon{
-      margin: 0.5%;
-      margin-left: 0.5%;
-    }
+    
+.mediumInput {
+  height: 40px;
+  width: 230px;
+  border-radius: 5px;
+  font-size: 20px;
+  border: solid 2px black;
+  display: flex;
+  flex-direction: row-reverse;
+  font-weight: 700;
+}
 
   .box{
     box-sizing: border-box;
-    width: 35%;
-    height: 100%;
-    margin:2% 15%;
+    width: 30vw;
+    height: 50vw;
     text-align: left;
     position: absolute;
     padding: 1%;
+    margin-left:20vw;
   }
 
   
@@ -396,32 +403,33 @@
 
   #proximo{
     margin-top: 10%;
-    font-size: 150%;
+    font-size: 1vw;
     position: absolute;
-    width: 7em;
-    height: 3em;
+    width: 7vw;
+    height: 3vw;
     padding: 1%;
-  }
 
+  }
 
 
   .erroMsg{
     position: absolute;
-    margin: 1%;
     display: none;
+    font-size:clamp(0.3em, 0.9vw, 1em);
     color:red;
+
   }
 
-  input[type=date]{
-    margin: 9% 8%;
-    color:azure;
-    border:none;
-    width: 6%;
-    height: 20%;
-    z-index: 1;
-    outline: none;
-    
-  }  
+  input[type="date"]{
+    background-color: whitesmoke;  
+    border: none;
+    font-size: 1vw;
+    border-radius: 1vw;
+    margin: 0.7vw;
+    width: 8vw;
+    height: 2vw;
+    padding: 0vw 1vw;
+  }
 
   #con{
     position:absolute;
@@ -431,58 +439,67 @@
   }
 
   #bigInput{
-    width: 100%;
-    height: 6em;
-    margin-top: 5%;
+    width: 28vw;
+    height: 4em;
+    font-size: 1vw;
+    margin-top: 1.2vw;
     padding: 12px 20px;
     display: inline-block;
-    border-radius: 4%;
+    border-radius: 0.5vw;
+    border: solid 1px;
     box-sizing: border-box;
   }
 
+  .checkBox{
+    margin-top:2vw;
+  }
   #check{
     position: absolute;
+    font-size: 1vw;
+    
     margin-left: 10%;
     margin-top:0%;
   }
 
   #checkin{
     position: absolute;
-    
-    
+    width: 1vw;
+    height: 1vw;
   }
 
-  .dateBox{
-    border: solid 1px;
-    width: 45%;
-    margin-top: 7.5%;
-    height: 5em;
-    border-radius: 4%;
-    box-sizing: border-box;
-  }
+
   .subBox1{
-    display: flexbox;
     position: absolute;
     width: 98%;
     text-align: left;
   }
   .subBox2{
-    display: flexbox;
     position: absolute;
     margin-left: 50%;
     width: 98%;
   }
+
   .inBox{
     border-color: none;
     border: solid 1px;
-    font-size:100%;
-    z-index: -1;
-    width: 45%;
+    margin-top: 2vw;
+    font-size:0.7vw;
+    width: 13vw;
     height: 5em;
-    padding: 10px;
-    border-radius: 4%;
+    border-radius: 0.5vw;
     box-sizing: border-box;
   }
+
+  
+  .in{
+    margin: 0vw 0.4vw;
+    border-radius: 0.5vw;
+    font-size: 1vw;
+    width: 90%;
+    height: 80%;
+    border:none;
+  }
+
   #date{
     border-color: none;
     margin: -0.5%;
@@ -495,20 +512,25 @@
     box-sizing: border-box;
   }
 
-  #bemVindo{
+  #mainText{
     font-size: clamp(1em, 3vw, 15em);
     margin-bottom: 1%;
+  }
+
+  #text{
+    font-size: clamp(1vw, 1vw, 10em);
+
   }
   
   .normalLabel{
     z-index: 1;
-    margin-left: 1%;
+    margin-left: 0.2vw;
     position: absolute;
     background: white;
-    position: absolute;
-    margin-top: 7.5%;
+    position: relative;
+    margin-top: -0.5vw;
     float: left;
-    font-size: 70%;
+    font-size: 0.7vw;
     font-weight: 700;
   }
 
@@ -520,7 +542,7 @@
     position: absolute;
     margin-top: 3%;
     float: left;
-    font-size: 70%;
+    font-size: 0.7vw;
     font-weight: 700;
   }
 
@@ -533,9 +555,9 @@
     position: absolute;
     background: white;
     position: absolute;
-    margin-top: 7% ;
+    margin-top: 6% ;
     float: left;
-    font-size: 70%;
+    font-size: 0.7vw;
     font-weight: 700;
   }
 

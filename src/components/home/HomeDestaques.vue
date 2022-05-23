@@ -12,7 +12,6 @@
                  pulvinar, in netus pretium <br>elementum scelerisque potenti 
                  <br>urna sagittis id, curae conubia etiam <br> </h3>
                 <router-link to="/cadastro"><BotaoMagenta msg="Cadastre-se" id="b"/></router-link>
-                 
             </div>
             
         </div>
@@ -29,7 +28,7 @@
                  potenti dolor mauris<br> eu arcu etiam habitasse<br> 
                  pulvinar, in netus pretium <br></h3>
                  
-                 <router-link to="/cadastro"><BotaoMagenta msg="Cadastre-se" id="b"/></router-link>
+                 <router-link to="/bart"><BotaoMagenta msg="Cadastre-se"/></router-link>
             </div>
     </div>
 </template>
@@ -66,12 +65,6 @@
         font-size: 150%;
     }
 
-    #b{
-        font-size: 200%;
-        padding: 1% 4%;
-        display: inline-block;
-          
-    }
 
     .texto2{
         float:left;
