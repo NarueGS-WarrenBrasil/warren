@@ -13,7 +13,7 @@
     
     button{
         font-weight: 700;
-        font-size: 65%;
+        font-size: 1vw;
         background-color: rgb(41, 40, 40);
         color:azure;
         text-align: center;
@@ -24,9 +24,10 @@
         padding: 0.5%;
         margin-top: 0.5%;
         margin-right: 3%;
-        height: 69%;
-        width: 6%;
+        height: 6em;
+        width: 9em;
     }
+
 
     
 </style>

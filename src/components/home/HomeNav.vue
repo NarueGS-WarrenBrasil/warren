@@ -64,6 +64,11 @@
     padding-top: 20px;
     }
 
+    #b{
+        width: 7%;
+        height: 70%;
+    }
+
     .navbar {
     overflow: hidden;
     background-color: rgb(164, 161, 161);

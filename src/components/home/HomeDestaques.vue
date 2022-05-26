@@ -28,7 +28,7 @@
                  potenti dolor mauris<br> eu arcu etiam habitasse<br> 
                  pulvinar, in netus pretium <br></h3>
                  
-                 <router-link to="/bart"><BotaoMagenta msg="Cadastre-se"/></router-link>
+                 <router-link to="/cadastro"><BotaoMagenta msg="Cadastre-se"/></router-link>
             </div>
     </div>
 </template>

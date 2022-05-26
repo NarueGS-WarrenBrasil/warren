@@ -22,7 +22,6 @@ import HomeRodape from '../components/home/HomeRodape.vue';
     HomeDestaques,
     HomeInvestir,
     HomeRodape,
-
   },
 })
 export default class HomeView extends Vue {}
