@@ -1,3 +1,157 @@
 <template>
-    <h1>oi</h1>
+    <div  class="box">
+      <LinhaProgrecao2 id="linha"/>
+      <h1 id="mainText">Dados pessoais</h1><br>
+      <span id="text">Que tal começar a investir do melhor jeito? Primeiro nos conte sobre você para
+        depois contarmos sobre o jeito Warren de investir!</span>
+      <form>
+          <div class="subBox1">
+            <div class="inBox">
+              <label for="pais" class='normalLabel'>PAÍS</label>
+              <input type="text"  class="in" name="pais" v-model="pais"><br>
+            </div>
+            <span class="erroMsg" ref="ErrorPais">Esse campo deve ser preenchido</span>
+            
+            <div class="inBox">
+              <label for="cidade" class='normalLabel'>CIDADE</label>
+              <input type="text" class="in"  name="cidade" autocomplete="off" v-model="cidade"><br>
+            </div>
+            <span class="erroMsg" ref="ErrorCidade"  >Esse campo deve ser preenchido</span>
+            
+              <label for="numero" id="lNúmero" class='especialLabel' v-maska="'#*'">NÚMERO</label><br>
+              <input type="text" id="bigInput" name="numero" v-model="numero"><br>
+              <span class="erroMsg" ref="ErrorNumero"  >Esse campo deve ser preenchido</span>
+              <a href=""  @click.prevent="verify2"><BotaoMagenta msg="continuar" id="proximo" /></a>
+          </div>
+          <div class="subBox2">
+            <div class="inBox">
+              <label for="cep" class='normalLabel'>CEP</label>
+              <input v-maska="'#####-###'" type="text" class="in" name="email" v-model="cep">
+            </div>  
+              <span class="erroMsg" ref="ErrorCep"  >Esse campo deve ser preenchido</span>
+              
+            <div class="inBox">
+              <label for="endereco" class='normalLabel'>ENDEREÇO</label>
+              <input type="text" class="in" name="endereco" maxlength="14" v-model="endereco"><br>
+            </div>
+            <span class="erroMsg" ref="ErrorEndereco"  >Esse campo deve ser preenchido</span>
+          </div>
+      </form>
+      
+    </div>
 </template>
+
+<script>
+import LinhaProgrecao2 from '../../icons/LinhaProgrecao2.vue'
+import BotaoMagenta from '../../Botoes/BotaoMagenta.vue'
+
+export default {
+    components:{
+        LinhaProgrecao2,
+        BotaoMagenta
+    },
+    data() {
+        return {
+            pais:"",
+            cep:"",
+            cidade:"",
+            endereco:"",
+            numero:"",   
+            
+            inputs2:[
+              this.pais,
+              this.cep,
+              this.cidade,
+              this.enderecom,
+              this.numero
+            ]
+        }
+    },
+    methods: {
+      v(){
+        alert("SSSSS")
+      },
+      verify2(){
+            
+            let v = [
+              this.pais,
+              this.cep,
+              this.cidade,
+              this.endereco,
+              this.numero,
+            ];
+            let errors = [];
+            let check = [];
+            let final = [];
+            for(let i = 0; i<v.length;i++){
+              if(v[i] != ""){
+                check.push(i)
+              }
+              else{
+                errors.push(i)
+                }
+              }
+            for(let n=0;n<errors.length;n++){
+                if(errors[n] == 0){
+                  this.$refs.ErrorPais.style.display = "block"
+                }
+                if(errors[n] == 1){
+                  this.$refs.ErrorCep.style.display = "block"
+                }
+                if(errors[n] == 2){
+                  this.$refs.ErrorCidade.style.display = "block"
+                }
+                if(errors[n] == 3){
+                  this.$refs.ErrorEndereco.style.display = "block"
+                }
+                if(errors[n] == 4){
+                  this.$refs.ErrorNumero.style.display = "block"
+                }
+            }
+            for(let n=0;n<check.length;n++){
+              if(check[n] == 0){
+                this.$refs.ErrorPais.style.display = "none"
+                final.push(check[n])
+              }
+              if(check[n] == 1){
+                if(this.cep.length == 9){
+                  this.$refs.ErrorCep.style.display = "none"
+                  final.push(check[n])
+                }
+                else{
+                  this.$refs.ErrorCep.style.display = "block"
+                }
+              }
+              if(check[n] == 2){
+                this.$refs.ErrorCidade.style.display = "none"
+                final.push(check[n])
+              }
+              if(check[n] == 3){
+                this.$refs.ErrorEndereco.style.display = "none"
+                final.push(check[n])
+              }
+              if(check[n] == 4){
+                this.$refs.ErrorNumero.style.display = "none"
+                final.push(check[n])
+              }
+                
+            }
+            if(final.length == 5 ){
+              console.log(final)
+              this.$emit('Proxima',this.array)
+            }
+            else{
+              console.log(final)
+            }
+            
+            }
+    },
+}
+
+</script>
+
+<style scoped>
+  #lNúmero{
+    margin-top: 1.7vw;
+  }
+</style>
