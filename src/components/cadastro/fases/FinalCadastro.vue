@@ -1,0 +1,57 @@
+<template>
+    <div  class="box">
+      <LinhaProgrecao3 />
+      
+      <div class="final">
+        <NiceIcon id="nice"/>
+        <h1 id="mainText">
+          Cadastro<br>
+          finalizado
+        </h1>
+        <router-link to="/"><BotaoPreto id="final_botao"/></router-link>
+      </div>
+    </div>
+
+</template>
+<script>
+import LinhaProgrecao3 from '../../icons/LinhaProgrecao3.vue'
+import NiceIcon from '../../icons/NiceIcon.vue'
+import BotaoPreto from '../../Botoes/BotaoPreto.vue'
+
+
+export default {
+    components:{
+        LinhaProgrecao3,
+        NiceIcon,
+        BotaoPreto
+    }
+}
+</script>
+
+<style>
+    .final{
+    text-align: center;
+    font-size: 20%;
+    top: 10vw;
+    left:1vw;
+    justify-content: center;
+    width: 28vw;
+    position: absolute;
+    word-break: break-all;
+  }
+
+  #nice{
+    width: 2vw;
+    height:2vw;
+    padding: 1vw;
+    border-radius: 3vw;
+    background-color: aquamarine;
+  }
+
+  #final_botao{
+    font-size: 400%;
+    border-radius: 0.5vw;
+    margin-top: 3vw;
+    height: 3vw;
+  }
+</style>
