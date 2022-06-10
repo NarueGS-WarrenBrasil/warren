@@ -52,11 +52,11 @@ export default {
     data() {
         return {
           db2:{
-            pais:"País",
-            cep:"11111111",
-            cidade:"Cidade",
-            endereco:"Rua Tal de Tal lugar",
-            numero:"23232434",   
+            pais:"",
+            cep:"",
+            cidade:"",
+            endereco:"",
+            numero:"",   
           },
         }
     },

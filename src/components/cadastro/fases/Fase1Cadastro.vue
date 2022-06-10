@@ -82,12 +82,13 @@ export default {
      data() {
        return {
          db1:{
-          nome:"Nome Completo",
-          email:"email@gmail.com",
-          email2:"email@gmail.com",
-          cpf:"45162655830",
+          nome:"",
+          email:"",
+          email2:"",
+          cpf:"",
           data: "" ,
-          telefone: "45162655830",
+          telefone: "",
+          teste:"",
          },
           validEmail: false,
           status:"paused",
@@ -204,11 +205,10 @@ export default {
               }
 
               if(check[x] == 1){
-                let checkMail = this.db1.email.split("@")
-                let checkDot = this.db1.email.split(".")
+                let checkMail = /@/
+                let checkDot = /./
                 
-                if(checkMail.length == 2 && checkDot.length > 1){
-                  
+                if(checkMail.test(this.db1.email) == true && checkDot.test(this.db1.email)){
                   this.$refs.ErrorEmail.style.display = "none"
                   this.validEmail = true
                 }

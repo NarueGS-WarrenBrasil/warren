@@ -62,7 +62,7 @@
         padding: 0;
         font-size: 1vw;
         display: flex;
-        background-color: gray;
+        background-color: rgb(241, 36, 87);
         justify-content: space-around;
         width: 100%;
         height: 30vw;

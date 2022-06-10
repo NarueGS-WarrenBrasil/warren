@@ -35,8 +35,8 @@ export default{
     data() {
       return {
         showFase1:false,
-        showFase2: true,
-        showFase3: false,
+        showFase2: false,
+        showFase3: true,
         fase:"",
         two:"off",
         three:"off",

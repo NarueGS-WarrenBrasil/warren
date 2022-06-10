@@ -46,7 +46,7 @@
     .destaques{
         margin-top:45vw;
         height: 80vw;
-        line-break: all;
+        line-break: a;
     }
 
     
@@ -66,6 +66,11 @@
         width:34vw;
         height:37.4vw;
         border-radius: 0.5vw;
+    }
+
+    #b{
+        width:40%;
+        height: 10%;
     }
 
   
