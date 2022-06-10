@@ -1,7 +1,5 @@
 <template>
-    <div  class="box">
-      <LinhaProgrecao3 />
-      
+    <div  class="box">      
       <div class="final">
         <NiceIcon id="nice"/>
         <h1 id="mainText">
@@ -11,17 +9,14 @@
         <router-link to="/"><BotaoPreto id="final_botao"/></router-link>
       </div>
     </div>
-
 </template>
 <script>
-import LinhaProgrecao3 from '../../icons/LinhaProgrecao3.vue'
 import NiceIcon from '../../icons/NiceIcon.vue'
 import BotaoPreto from '../../Botoes/BotaoPreto.vue'
 
 
 export default {
     components:{
-        LinhaProgrecao3,
         NiceIcon,
         BotaoPreto
     }

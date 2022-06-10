@@ -1,11 +1,10 @@
 <template>
-  <div class="box">
-          <LinhaProgrecao1 />
-          
+  <div :class="animate"  class="box">
           <h1 id="mainText">Seja bem-vinda(o)</h1>
+          <span id="text" style="font-size:110%; margin:1vw 0vw 1vw 0vw" >Dados de contato</span>
           <form>
             <label for="nome" class='especialLabel'>NOME COMPLETO</label>
-            <input type="text-box" id="bigInput" name="nome" v-model="nome"><br>
+            <input type="text-box" id="bigInput" name="nome" v-model="db1.nome"><br>
             <span class="erroMsg" ref="ErrorName">Esse campo deve ser preenchido</span>
             <div class="subBox1">
               <!-- <EmailIcon id="con"/> -->
@@ -13,22 +12,21 @@
                 
               <div class="inBox">
                 <label for="email" class='normalLabel'>EMAIL</label>
-                <input type="email"  class="in" name="email" v-model="email"><br>
+                <input type="email"  class="in" name="email" v-model="db1.email"><br>
               </div>
               <span class="erroMsg" ref="ErrorEmail">Esse campo deve ser preenchido</span>
               
               <div class="inBox">
                 <label for="cpf" class='normalLabel'>CPF</label>
-                <input v-maska="'###.###.###-##'" type="text" class="in" name="cpf" autocomplete="off" maxlength="14" v-model="cpf"><br>
+                <input v-maska="'###.###.###-##'" type="text" class="in" name="cpf" autocomplete="off" maxlength="14" v-model="db1.cpf"><br>
               </div>
               <span class="erroMsg" ref="ErrorCpf"  >Esse campo deve ser preenchido</span>
               
               <div class="inBox">
                 <label for="date"  class='normalLabel'>DATA DE NASCIMENTO</label>
-                <input  type="date" id="dateIn" v-model="date">
+                <input  type="date" id="dateIn" v-model="db1.data">
               </div>
               <span class="erroMsg" id="Edate" ref="ErrorDate"  >Esse campo deve ser preenchido</span><br>
-              
               
 
               <strong id="text">
@@ -48,13 +46,13 @@
             <div class="subBox2">
               <div class="inBox">
                 <label for="email" class='normalLabel'>CONFIRMAR EMAIL</label>
-                <input type="text-box" class="in" name="email" v-model="email2"><br>
+                <input type="text-box" class="in" name="email" v-model="db1.email2"><br>
               </div>
               <span class="erroMsg" id="email2" ref="ErrorEmail2"  >Esse campo deve ser preenchido</span>
 
               <div class="inBox">
                 <label for="email" class='normalLabel'>TELEFONE</label>
-                <input v-maska="'+55(##)#####-####'" type="text-box" class="in" id="" name="email" maxlength="17" v-model="telefone">
+                <input v-maska="'+55(##)#####-####'" type="text-box" class="in" id="" name="email" maxlength="17" v-model="db1.telefone">
               </div>
               <span class="erroMsg" id="telefone" ref="ErrorTelefone"  >Esse campo deve ser preenchido</span>
             </div>
@@ -68,36 +66,33 @@
 
 
 import BotaoMagenta from '../../Botoes/BotaoMagenta.vue'
-import LinhaProgrecao1 from '../../icons/LinhaProgrecao1.vue'
-  
+
 
 export default {
      components:{
-        LinhaProgrecao1,
         BotaoMagenta,
          
      },
      props:{
-       
+       animate:{
+         type:String,
+       }
      },
      
      data() {
        return {
-          nome:"",
-          email:"",
-          email2:"",
-          cpf:"",
-          date: "" ,
-          telefone: "",
-
-          array:[this.nome,
-                this.email,
-                this.email2,
-                this.cpf,
-                this.telefone,
-                this.date,],
+         db1:{
+          nome:"Nome Completo",
+          email:"email@gmail.com",
+          email2:"email@gmail.com",
+          cpf:"45162655830",
+          data: "" ,
+          telefone: "45162655830",
+         },
+          validEmail: false,
           status:"paused",
         }
+        
 
         
      },
@@ -106,7 +101,7 @@ export default {
        
        cpfClean(){
             let l = []
-            let str = this.cpf.split("")
+            let str = this.db1.cpf.split("")
             for(let i=0;i<str.length;i++){
                 if(str[i] != "."){
                     if(str[i] != "-"){
@@ -116,15 +111,18 @@ export default {
             }
             return l.join("")
           },
-
-
           
-
           verifyCPF(){
             let soma = 0
             let resto
             let cpf = this.cpfClean()
             if(cpf == "") return false
+            for(let i=0;i<=9;i++){
+              let a = i.toString().repeat(11)
+              if(cpf == a){
+                return false
+              }
+            }
 
             for(let i=1;i<=9;i++){
               soma += parseInt(cpf.substring(i-1,i)) *(11 - i)
@@ -155,12 +153,12 @@ export default {
 
           verify() {
             let v = [
-                this.nome,
-                this.email,
-                this.email2,
-                this.cpf,
-                this.telefone,
-                this.date,
+                this.db1.nome,
+                this.db1.email,
+                this.db1.email2,
+                this.db1.cpf,
+                this.db1.telefone,
+                this.db1.data,
               ];
             
             let errors = [];
@@ -201,15 +199,16 @@ export default {
             }
             for(let x = 0;x<check.length;x++){
               if(check[x] == 0){
-                final.push(this.nome)
+                final.push(this.db1.nome)
                 this.$refs.ErrorName.style.display = "none"
               }
 
               if(check[x] == 1){
-                let checkMail = this.email.split("@")
-                let checkDot = this.email.split(".")
+                let checkMail = this.db1.email.split("@")
+                let checkDot = this.db1.email.split(".")
                 
                 if(checkMail.length == 2 && checkDot.length > 1){
+                  
                   this.$refs.ErrorEmail.style.display = "none"
                   this.validEmail = true
                 }
@@ -220,22 +219,22 @@ export default {
               }
 
               if(check[x] == 2){
-                if(this.email2 == this.email && this.validEmail == true){
-                  final.push(this.email)
-                  final.push(this.email2)
+                
+                if(this.db1.email2 == this.db1.email && this.validEmail == true){
+                  final.push(this.db1.email)
+                  final.push(this.db1.email2)
                   this.$refs.ErrorEmail2.style.display = "none"
                 }
-                else{
-                  this.$refs.ErrorEmail.innerHTML = "Email inválido"
-                  this.$refs.ErrorEmail.style.display = "block"
-                  this.$refs.ErrorEmail2.innerHTML = "Email inválido"
+                if(this.db1.email2 != this.db1.email && this.validEmail == true){
+                  this.$refs.ErrorEmail2.innerHTML = "Os emails devem ser iguais"
                   this.$refs.ErrorEmail2.style.display = "block"
                 }
+                
               }
 
               if(check[x] == 3){
                 if(this.verifyCPF()){
-                  final.push(this.cpf)
+                  final.push(this.db1.cpf)
                   this.$refs.ErrorCpf.style.display = "none"
                 }
                 else{
@@ -245,28 +244,26 @@ export default {
                 
                 }
               if(check[x] == 4){
-                if(this.telefone.length == 17){
+                if(this.db1.telefone.length == 17){
                   this.$refs.ErrorTelefone.style.display = "none"
-                  final.push(this.telefone)
+                  final.push(this.db1.telefone)
                 }
                 else{
+                   this.$refs.ErrorTelefone.innerHTML = "Telefone inválido"
                   this.$refs.ErrorTelefone.style.display = "block"
                 }
               }
               if(check[x] == 5){
-                if(this.date != ""){
+                if(this.db1.date != ""){
                   this.$refs.ErrorDate.style.display = "none"
-                  final.push(this.date)
+                  final.push(this.db1.date)
                 }
               }              
             }
             if(final.length == 6 ){
-              console.log(final)
-              this.$emit('Proxima',this.array)
+              this.$emit('Proxima', this.db1)
             }
-            else{
-              console.log(final)
-            }
+            
           },
      },
      
@@ -276,6 +273,9 @@ export default {
 
 <style scoped>
 
+  
+
+  
 
   #dateIn{
     background-color: whitesmoke;  
@@ -306,6 +306,8 @@ export default {
     width: 1vw;
     height: 1vw;
   }
+
+  
   /* futura animação */
   /* .box{
     animation-name: example;

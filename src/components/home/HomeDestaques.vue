@@ -1,35 +1,33 @@
 <template>
     <div class="destaques">
-        <div >
-            <img id="moça" loading="lazy" src="https://warren.com.br/assets/images/modules/produtos/d_carteiras.jpg" width="645" height="728" alt="foto Carteiras - warren">
-            <div class="texto1">
-                <h1 id="title1">Tá cansado de Loren ipsum?</h1>
-                <h3>Então vem pra Warren!<br>Aqui te impulsionamos pra <strong>bem longe</strong> do velho<br>Lorem ipsum etiam congue
-                 <br>hac blandit class duis, aliquam<br>
-                 donec gravida sagittis sollicitudin primis<br> 
-                 pulvinar, egestas tincidunt lacus suscipit <br>nibh senectus. ultricies leo aliquet<br> 
-                 potenti dolor mauris<br> eu arcu etiam habitasse<br> 
-                 pulvinar, in netus pretium <br>elementum scelerisque potenti 
-                 <br>urna sagittis id, curae conubia etiam <br> </h3>
+        <div class="destaque">
+            <img id="img" loading="lazy" src="https://warren.com.br/assets/images/modules/produtos/d_carteiras.jpg" width="645" height="728" alt="foto Carteiras - warren">
+            <div class="text">
+                <h1 >Tá cansado de Loren ipsum?</h1>
+                <h3>Então vem pra Warren!Aqui te impulsionamos pra <strong>bem longe</strong> do velhoLorem ipsum etiam congue
+                 hac blandit class duis, aliquam
+                 donec gravida sagittis sollicitudin primis 
+                 pulvinar, egestas tincidunt lacus suscipit nibh senectus. ultricies leo aliquet 
+                 potenti dolor mauris eu arcu etiam habitasse 
+                 pulvinar, in netus pretium elementum scelerisque potenti 
+                 urna sagittis id, curae conubia etiam  </h3>
                 <router-link to="/cadastro"><BotaoMagenta msg="Cadastre-se" id="b"/></router-link>
             </div>
-            
         </div>
-
-        <img id="moço" loading="lazy" src="https://warren.com.br/assets/images/modules/produtos/d_bolsa.jpg" width="645" height="728" alt="foto Carteiras - warren">
-        <div class="texto2">
-                <h1 id="title2">Tá cansado de Loren ipsum?</h1>
-                <div id="borda"> <h3>Então vem pra Warren!<br>Aqui te impulsionamos pra <strong>bem longe</strong> do velho<br>Lorem ipsum etiam congue
-                 <br>hac blandit class duis, aliquam<br>
-                 donec gravida sagittis elementum scelerisque potenti 
-                 <br>urna sagittis id, curae conubia etiam 
-                  primis</h3></div>
-                 <h3>, egestas tincidunt lacus suscipit <br>nibh senectus. ultricies leo aliquet<br> 
-                 potenti dolor mauris<br> eu arcu etiam habitasse<br> 
-                 pulvinar, in netus pretium <br></h3>
-                 
-                 <router-link to="/cadastro"><BotaoMagenta msg="Cadastre-se"/></router-link>
+        <div class="destaque" style="flex-direction: row-reverse;">
+            <img id="img" loading="lazy" src="https://warren.com.br/assets/images/modules/produtos/d_bolsa.jpg" width="645" height="728" alt="foto Carteiras - warren">
+            <div class="text">
+                <h1 >Tá cansado de Loren ipsum?</h1>
+                <h3>Então vem pra Warren!Aqui te impulsionamos pra <strong>bem longe</strong> do velhoLorem ipsum etiam congue
+                 hac blandit class duis, aliquam
+                 donec gravida sagittis sollicitudin primis 
+                 pulvinar, egestas tincidunt lacus suscipit nibh senectus. ultricies leo aliquet 
+                 potenti dolor mauris eu arcu etiam habitasse 
+                 pulvinar, in netus pretium elementum scelerisque potenti 
+                 urna sagittis id, curae conubia etiam  </h3>
+                <router-link to="/cadastro"><BotaoMagenta msg="Cadastre-se" id="b"/></router-link>
             </div>
+        </div>
     </div>
 </template>
 
@@ -46,38 +44,31 @@
 <style scoped>
 
     .destaques{
-        background: white;
-        margin-top:45%;
-        min-height: 1700px;
-        padding: 1px;
+        margin-top:45vw;
+        height: 80vw;
+        line-break: all;
     }
 
-    #moça{
-        margin: 2.5% 10%;
-        margin-right: 0%;
+    
+    
+    .destaque{
+        display: flex;
+        justify-content: space-evenly;
         
     }
     
-    .texto1{
-        float: right;
-        margin: 2.5% 10%;
-        margin-left: 0%;
-        font-size: 150%;
+    .text{
+        font-size: 1.4vw;
+        width: 34vw;
     }
 
-
-    .texto2{
-        float:left;
-        
-        margin-left: 10%;
-        font-size: 150%;
+    #img{
+        width:34vw;
+        height:37.4vw;
+        border-radius: 0.5vw;
     }
 
-    #moço{
-        float: right;
-        margin: 0% 12%;
-        margin-left: 0%;
-    }
+  
     #borda{
         border-bottom: solid 2px rgb(255, 0, 98);
         

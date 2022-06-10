@@ -1,10 +1,15 @@
 <template>
-    <button type="button" >Button</button>
+    <button type="button" >{{text}}</button>
 </template>
 
 <script>
     export default{
-        name:'BotaoPreto'
+        name:'BotaoPreto',
+        props:{
+            text:{
+                type:String,
+            }
+        }
     }
 </script>
 
@@ -20,13 +25,20 @@
         text-decoration: none;
         display: inline-block;
         border-radius: 25px;
-        border-color: rgb(71, 71, 71); ;
+        border:none;
         padding: 0.5%;
         margin-top: 0.5%;
         margin-right: 3%;
-        height: 6em;
-        width: 9em;
+        height: 6vw;
+        width: 19vw
     }
+
+    button:hover{
+        background-color: rgb(56, 54, 54);
+    }
+
+    
+
 
 
     

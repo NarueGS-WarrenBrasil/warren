@@ -4,13 +4,7 @@ import router from './router'
 import Maska from 'maska'
 Vue.use(Maska)
 Vue.config.productionTip = false
-// const VMask = require('v-mask');
 
-// Vue.use(VMask);
-
-
-
-Vue.config.productionTip = false
 
 new Vue({
   router,

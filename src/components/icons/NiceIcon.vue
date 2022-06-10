@@ -13,10 +13,11 @@ fill="#000000" stroke="none">
 </template>
 
 <script>
-
+export default{
+    name: "NiceIcon"
+}
 </script>
 
 <style scoped>
-
-
+    
 </style>

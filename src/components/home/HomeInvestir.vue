@@ -2,7 +2,7 @@
     <div class="investimento">
         <h1>Investir é sobre você<br> <p>começe a investir em poucos minutos. descomplique</p></h1>
         
-        <BotaoPreto id="b"/>
+        <BotaoPreto text="Abra sua conta" id="b"/>
     </div>
 </template>
 
@@ -17,35 +17,34 @@
 </script>
 
 <style scoped>
-    div{
-        background-color: rgb(164, 161, 161);
-        display: flex;
-        margin-bottom: 5%;
-        width: 100%;
-        
-        
-    }
+    
     p{
-        font-size: 50%;
+        font-size: 1.5vw;
         
     }
 
     h1{
-        margin: 8% 0%;
+        margin: 7% 0%;
         color: azure;
-        font-size: 250%;
+        font-size: 3vw;
     }
     #b{
-        font-size: 130%;
-        display: inline-block;
         margin: 8% 0%;
         width: 10%;
         height: 20%;
-        border-radius: 40px;
+        border-radius: 0.3vw;
     }
     .investimento{
         display: flex;
         justify-content: space-around;
-        height: 400px;
+        width: 100%;
+        height: 20vw;
+        display: flex;
+        background-color: rgb(224, 43, 87);
+        margin-bottom: 0%;
+
+        
+        
     }
+    
 </style>

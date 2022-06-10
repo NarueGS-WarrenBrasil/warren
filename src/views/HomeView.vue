@@ -28,7 +28,15 @@ export default class HomeView extends Vue {}
 </script>
 
 <style>
-  body{
-    background-color: gray;
+ 
+#text{
+    font-size: 1.3vw
+
   }
+
+  @keyframes init{
+       0%   {opacity:0%; left:-500px;}
+       100%{opacity:100%; left:0px;}
+    }
+  
 </style>
