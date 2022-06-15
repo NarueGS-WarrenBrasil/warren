@@ -4,7 +4,7 @@
         <div class="modal">
             <div class="modal-top">
                 <span id="text">Confirmar informações de cadastro</span>
-            </div>{{this.dados_pessoais.checkSMS}}
+            </div>{{dados_pessoais.checkSMS}}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
             <div class="modal-content" >
                 <span id="text">Análise e confirme os dados inputados no cadastro</span><br>
@@ -15,26 +15,26 @@
                     <div class="dados">
                         <ol>
                             <li>
-                                <span class="field_name">CPF</span><br>
-                                <strong>{{this.dados_contato.cpf}}</strong>
+                                <span id="text">CPF</span><br>
+                                <strong>{{dados_contato.cpf}}</strong>
                             </li>
                             <li>
-                                <span class="field_name">Nome Completo</span><br>
-                                <strong>{{this.dados_contato.nome}}</strong>
+                                <span id="text">Nome Completo</span><br>
+                                <strong>{{dados_contato.nome}}</strong>
                             </li>
                             <li>
-                                <span class="field_name">Nascimento</span><br>
-                                <strong>{{this.dados_contato.data}}</strong>
+                                <span id="text">Nascimento</span><br>
+                                <strong>{{dados_contato.data}}</strong>
                                 
                             </li>
                         </ol>
                         <ol>
                             <li>
-                                <span class="field_name">Telefone</span><br>
-                                <strong>{{this.dados_contato.telefone}}</strong>
+                                <span id="text">Telefone</span><br>
+                                <strong>{{dados_contato.telefone}}</strong>
                             </li>
                             <li>
-                                <span class="field_name">Contato</span><br>
+                                <span id="text">Contato</span><br>
                                 <div v-show="dados_contato.checkZap">
                                     <fa-icon icon="fa-brands fa-whatsapp" size="2x" alt="whatsapp"/>
                                 </div>
@@ -52,26 +52,26 @@
                     <div class="dados">
                     <ol>
                         <li>
-                            <span class="field_name">País</span><br>
-                            <strong>{{this.dados_pessoais.pais}}</strong>
+                            <span id="text">País</span><br>
+                            <strong>{{dados_pessoais.pais}}</strong>
                         </li>
                         <li>
-                            <span class="field_name">Cidade</span><br>
-                            <strong>{{this.dados_pessoais.cidade}}</strong>
+                            <span id="text">Cidade</span><br>
+                            <strong>{{dados_pessoais.cidade}}</strong>
                         </li>
                         <li>
-                            <span class="field_name"> Cep</span><br>
-                            <strong>{{this.dados_pessoais.cep}}</strong>
+                            <span id="text"> Cep</span><br>
+                            <strong>{{dados_pessoais.cep}}</strong>
                         </li>
                         </ol>
                         <ol>
                         <li>
-                            <span class="field_name">Endereço</span><br>
-                            <strong>{{this.dados_pessoais.endereco}}</strong>
+                            <span id="text">Endereço</span><br>
+                            <strong>{{dados_pessoais.endereco}}</strong>
                         </li>
                         <li>
-                            <span class="field_name">Número</span><br>
-                            <strong>{{this.dados_pessoais.numero}}</strong>
+                            <span id="text">Número</span><br>
+                            <strong>{{dados_pessoais.numero}}</strong>
                         </li>
                     </ol>
                     </div>
@@ -217,12 +217,10 @@ export default {
 
     .field_name{
         color:gray;
-        font-size:1vw;
+        
     }
 
-    strong{
-        font-size: 1vw;
-    }
+    
 
     p{
         font-size: 1.3vw;
@@ -237,7 +235,7 @@ export default {
         list-style: none;
     }
     li{
-        margin:1vw
+        margin:clamp(0.1vw, 0.9em, 10em);
     }
 
     .modal-footer{

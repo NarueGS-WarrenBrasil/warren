@@ -282,9 +282,6 @@ export default {
                 this.db1.checkSMS = false
                 console.log(this.db1.checkSMS,"4")
               }
-  
-              
-              
               this.$emit('Proxima', this.db1)
 
             }
