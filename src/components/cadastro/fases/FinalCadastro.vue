@@ -6,7 +6,7 @@
           Cadastro<br>
           finalizado
         </h1>
-        <router-link to="/"><BotaoPreto id="final_botao"/></router-link>
+        <router-link to="/"><BotaoPreto text="Concluido" id="final_botao"/></router-link>
       </div>
     </div>
 </template>
@@ -41,12 +41,14 @@ export default {
     padding: 1vw;
     border-radius: 3vw;
     background-color: aquamarine;
+    box-shadow: 10vw aquamarine;
   }
 
   #final_botao{
-    font-size: 400%;
+    font-size: 1vw;
     border-radius: 0.5vw;
     margin-top: 3vw;
+    width: 7vw;
     height: 3vw;
   }
 </style>

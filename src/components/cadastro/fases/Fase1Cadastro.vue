@@ -1,15 +1,13 @@
 <template>
   <div :class="animate"  class="box">
-          <h1 id="mainText">Seja bem-vinda(o)</h1>
+          <h1 id="mainText" >Seja bem-vinda(o)</h1>
+        
           <span id="text" style="font-size:110%; margin:1vw 0vw 1vw 0vw" >Dados de contato</span>
           <form>
             <label for="nome" class='especialLabel'>NOME COMPLETO</label>
             <input type="text-box" id="bigInput" name="nome" v-model="db1.nome"><br>
             <span class="erroMsg" ref="ErrorName">Esse campo deve ser preenchido</span>
             <div class="subBox1">
-              <!-- <EmailIcon id="con"/> -->
-              
-                
               <div class="inBox">
                 <label for="email" class='normalLabel'>EMAIL</label>
                 <input type="email"  class="in" name="email" v-model="db1.email"><br>
@@ -28,18 +26,17 @@
               </div>
               <span class="erroMsg" id="Edate" ref="ErrorDate"  >Esse campo deve ser preenchido</span><br>
               
-
               <strong id="text">
                 <p>Quer receber as melhores dicas e ficar por dentro do universo Warren?</p>
                 <p>Então selecione por onde deseja recerber tudo e mais um pouco:</p>
               </strong>
               <div class="checkBox">
-                <input type="checkbox" id="checkin" name="msg">
-                <label for="msg" id="check">Email e SMS</label>
+                <input  type="checkbox" class="checkin" id="checkSMS" name="sms">
+                <label for="msg" id="check" :v-model="db1.checkSMS">Email e SMS</label>
               </div><br>
               <div class="checkBox">
                 <label for="whats" id="check">Whatsapp</label>
-                <input type="checkbox" id="checkin" name="whats">
+                <input type="checkbox" class="checkin" id="checkZap" name="whats">
               </div>
               <a href="#navbar"  @click.prevent="verify"><BotaoMagenta msg="continuar" id="proximo" /></a>
             </div>
@@ -49,7 +46,6 @@
                 <input type="text-box" class="in" name="email" v-model="db1.email2"><br>
               </div>
               <span class="erroMsg" id="email2" ref="ErrorEmail2"  >Esse campo deve ser preenchido</span>
-
               <div class="inBox">
                 <label for="email" class='normalLabel'>TELEFONE</label>
                 <input v-maska="'+55(##)#####-####'" type="text-box" class="in" id="" name="email" maxlength="17" v-model="db1.telefone">
@@ -82,16 +78,19 @@ export default {
      data() {
        return {
          db1:{
-          nome:"",
-          email:"",
-          email2:"",
-          cpf:"",
+          nome:"Nome",
+          email:"@gmail.com",
+          email2:"@gmail.com",
+          cpf:"45162655830",
           data: "" ,
-          telefone: "",
+          telefone: "45162655830",
           teste:"",
+          checkZap:false,
+          checkSMS:false,
+          
          },
           validEmail: false,
-          status:"paused",
+  
         }
         
 
@@ -261,9 +260,34 @@ export default {
               }              
             }
             if(final.length == 6 ){
+              let zap = document.getElementById("checkZap")
+              let sms = document.getElementById("checkSMS")
+              if(zap.checked){
+                console.log(zap.checked)
+                this.db1.checkZap = true    
+                console.log(this.db1.checkZap)  
+              }
+              if(!zap.checked){
+                console.log(zap.checked,"1")
+                this.db1.checkZap = false 
+                console.log(this.db1.checkZap,"2")
+              }
+              if(sms.checked){
+                console.log(sms.checked)
+                this.db1.checkSMS = true
+                console.log(this.db1.checkSMS)
+              }
+              if(!sms.checked){
+                console.log(sms.checked,"3")
+                this.db1.checkSMS = false
+                console.log(this.db1.checkSMS,"4")
+              }
+  
+              
+              
               this.$emit('Proxima', this.db1)
+
             }
-            
           },
      },
      
@@ -301,7 +325,7 @@ export default {
     margin-top:0%;
   }
 
-  #checkin{
+  .checkin{
     position: absolute;
     width: 1vw;
     height: 1vw;

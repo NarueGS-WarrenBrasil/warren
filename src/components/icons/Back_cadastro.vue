@@ -18,6 +18,7 @@ export default {
 
 <style>
     svg{
+
         margin-left:1vw;
     }
 </style>

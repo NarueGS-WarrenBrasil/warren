@@ -5,7 +5,8 @@
         <Back_cadastro @Back="goBack"/>
         <p id="title">FORMULÁRIO</p>
     </div>
-    <LinhaProgrecao  :two="two" :three="three" class="progrecao" :progrecao="fase"/>
+    
+    <LinhaProgrecao @click.native="go1"  :two="two" :three="three" class="progrecao" :progrecao="fase"/>
     <Fase1Cadastro :animate="animation" id="main_template" @Proxima="first"  v-show="showFase1"/>
     <Fase2Cadastro :animate="animation" id="template" @Proxima="second" v-show="showFase2"/>
     <CheckModal @confirm_modal="finish" @cancel_modal="bye_modal" :dados_pessoais="db_pessoal" :dados_contato="db_contato" :status="showModal" />
@@ -34,9 +35,9 @@ export default{
     },
     data() {
       return {
-        showFase1:false,
+        showFase1:true,
         showFase2: false,
-        showFase3: true,
+        showFase3: false,
         fase:"",
         two:"off",
         three:"off",
@@ -44,7 +45,6 @@ export default{
         db_pessoal:{},
         showModal:false,
         animation:"come"
-
       }
     },
     methods: {
@@ -52,7 +52,10 @@ export default{
         if(this.showFase2 && !this.showFase1 && !this.showFase3){
           this.showFase2 = false
           this.showFase1 = true
+          this.fase = ""
+          this.two = "off"
         }
+        
       },
 
       bye_modal(){
@@ -69,7 +72,7 @@ export default{
                 this.showFase1 = false
                 this.showFase2 = true
                 this.two = "on";
-              }, "1000")
+              }, "500")
               
 
             }
@@ -142,7 +145,7 @@ export default{
     }
     .progrecao{
       position: absolute;
-      left:20vw;
+      left:19vw;
       top: 3vw;
 
     }
@@ -211,17 +214,17 @@ export default{
   .come{
     animation-name:come;
     animation-fill-mode: forwards;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
   }
 
   @keyframes come{
-        0%   {opacity:0%; left:500px;}
-        100%{opacity:100%; left:0px;}
-      }
+    0%   {opacity:0%; left:500px;}
+    100%{opacity:100%; left:0px;}
+  }
   
   .leave{
     animation-name: run;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
     animation-timing-function: ease;
   }
@@ -239,6 +242,7 @@ export default{
     width: 95%;
     height: 65%;
     border:none;
+    outline: none;
   }
 
   #mainText{

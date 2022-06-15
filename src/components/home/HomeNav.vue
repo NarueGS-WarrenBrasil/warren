@@ -26,7 +26,6 @@
         <a href="#" class="nav_item">Menu5 </a>
         <BotaoB text="clique" id="b"/>
         
-        
     </div>
 </template>
 
@@ -98,6 +97,7 @@
 
     .logo{
         margin-top: 0.7vw;
+        margin-left: -1.6vw;
         width: 7vw;
         height: 2vw;
     }

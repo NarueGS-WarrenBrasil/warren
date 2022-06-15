@@ -56,7 +56,8 @@ export default {
             cep:"",
             cidade:"",
             endereco:"",
-            numero:"",   
+            numero:"",  
+             
           },
         }
     },
@@ -133,7 +134,6 @@ export default {
                 
             }
             if(final.length == 5 ){
-              console.log(final)
               this.$emit('Proxima',this.db2)
             }
             else{

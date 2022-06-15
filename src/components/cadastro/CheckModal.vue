@@ -4,7 +4,7 @@
         <div class="modal">
             <div class="modal-top">
                 <span id="text">Confirmar informações de cadastro</span>
-            </div>
+            </div>{{this.dados_pessoais.checkSMS}}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
             <div class="modal-content" >
                 <span id="text">Análise e confirme os dados inputados no cadastro</span><br>
@@ -25,6 +25,7 @@
                             <li>
                                 <span class="field_name">Nascimento</span><br>
                                 <strong>{{this.dados_contato.data}}</strong>
+                                
                             </li>
                         </ol>
                         <ol>
@@ -34,7 +35,14 @@
                             </li>
                             <li>
                                 <span class="field_name">Contato</span><br>
-                                <!-- <strong>{{this.dados_contato.numero}}</strong> -->
+                                <div v-show="dados_contato.checkZap">
+                                    <fa-icon icon="fa-brands fa-whatsapp" size="2x" alt="whatsapp"/>
+                                </div>
+                                <div v-show="dados_contato.checkSMS">
+                                    <fa-icon icon="free-solid fa-square-envelope" size="2x"/>
+                                </div>
+                                <!-- v-show="this.dados_contato.checkZap" -->
+                                
                             </li>
                         </ol>
                     </div>
@@ -80,6 +88,9 @@
 
 <script>
 export default {
+    components:{
+        
+    },
     props:{
         status: Boolean,
         dados_contato:Object,

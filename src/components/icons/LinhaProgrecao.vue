@@ -2,9 +2,9 @@
   
   <div>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810.4 28.6">
-      <circle class="on" cx="10.3" cy="15.2" r="10.3"/>
-      <circle class="b" cx="10.2" cy="15.3" r="9.1"/>
-      <circle class="on" cx="10.3" cy="15.3" r="7.3"/>
+      <circle @click="click1" class="on" cx="10.3" cy="15.2" r="10.3"/>
+      <circle @click="click1" class="b" cx="10.2" cy="15.3" r="9.1"/>
+      <circle @click="click1" class="on" cx="10.3" cy="15.3" r="7.3"/>
       <g>
       <rect class="c" x="21.6" y="14.5" width="763" height="1.63"/>
       <rect :class="progrecao" class="on" x="21.6" y="14.5" width="0" height="1.63"/>
@@ -48,7 +48,9 @@ export default {
     
   },
   methods: {
-    
+    click1(){
+      this.$emit('click1')
+    }
     
   },
 }
@@ -96,7 +98,7 @@ export default {
 
 
 
-      div{
+      svg{
         width: 30vw;
       }
 

@@ -2,7 +2,7 @@
     <div class="investimento">
         <h1>Investir é sobre você<br> <p>começe a investir em poucos minutos. descomplique</p></h1>
         
-        <BotaoPreto text="Abra sua conta" id="b"/>
+        <RouterLink to="/cadastro"><BotaoPreto text="Começar" id="b"/></RouterLink>
     </div>
 </template>
 
@@ -29,8 +29,8 @@
         font-size: 3vw;
     }
     #b{
-        margin: 8% 0%;
-        width: 10%;
+        margin: 148% 0%;
+        width: 200%;
         height: 20%;
         border-radius: 0.3vw;
     }
